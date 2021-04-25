@@ -1,13 +1,14 @@
 import React from 'react';
+import {createDeckAndDraw} from '../api';
 
 class CardGameBoard extends React.Component{
     state = {
 
     }
 
-    componentDidMount = () => {
-        
-    }
+    componentDidMount = async () => {
+        await createDeckAndDraw();
+    }   
 
     render() {
         return (
