@@ -17,5 +17,5 @@ export const createDeckAndDraw = async () => {
         }
     })
 
-    console.log(cardResponse);
+    return {...cardResponse.cards[0], deckId};
 };
