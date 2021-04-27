@@ -19,11 +19,15 @@ class CardGameBoard extends React.Component{
           })
     }   
 
+    onButtonClick = ({target: {name: bet}}) => {
+        console.log(bet)
+    }
+
     render() {
         return (
             <CardLayout>
                 <img src={this.state.cardImageUrl} alt="This is your card" />
-                <ButtonsTab></ButtonsTab>
+                <ButtonsTab onButtonClick={this.onButtonClick}></ButtonsTab>
             </CardLayout>
         )
     }
