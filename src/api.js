@@ -11,11 +11,19 @@ export const createDeckAndDraw = async () => {
         }
     })
     const {deck_id: deckId} = data;
-    const {data:cardResponse} = await api.get(`${deckId}/draw/`, {
+    const cardResponse = await drawCardFromDeck(deckId)
+
+    return {...cardResponse};
+};
+
+export const drawCardFromDeck = async (deckId) => {
+    const {data} = await api.get(`${deckId}/draw/`, {
         params: {
             count: 1
         }
     })
 
-    return {...cardResponse.cards[0], deckId};
-};
+    const {cards} = data;
+    const {value, image} = cards[0];
+    return {deckId, value, image}
+}
